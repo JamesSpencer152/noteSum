@@ -11,15 +11,19 @@ def pullFiles():
 def sortAudio():
     incoming = Path("audio/incoming")
     files = list(incoming.iterdir())
-    for i in files: 
-        print(i.name)
-        print(i.suffix)
-        if i.suffix == '.m4a':
-            moveFile(i, "audio/processing")
-            print("moved to processing")
-        else:
-            moveFile(i,"audio/nonAudio")
-            print("moved to nonAudio")
+    if len(files) == 0:
+        print("nothing to sort", flush = True)
+        return
+    else:
+        for i in files: 
+            print(i.name)
+            print(i.suffix)
+            if i.suffix == '.m4a':
+                moveFile(i, "audio/processing")
+                print("moved to processing")
+            else:
+                moveFile(i,"audio/nonAudio")
+                print("moved to nonAudio")
 
 def moveFile(source, destination):
     shutil.move(source, destination)
