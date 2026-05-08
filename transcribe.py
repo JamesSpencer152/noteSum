@@ -12,7 +12,7 @@ current = files[0]
 
 currentTxt = TRANSCRIPTS / current.with_suffix(".txt").name
 
-model = WhisperModel("small", device = "cpu", compute_type = "int8")
+model = WhisperModel("base", device = "cpu", compute_type = "int8")
 
 segments, info = model.transcribe(current, beam_size = 5)
 
