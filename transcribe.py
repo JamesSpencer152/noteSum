@@ -1,14 +1,15 @@
 from faster_whisper import WhisperModel
 from pathlib import Path
 
-processing = Path("audio/processing")
-transcripts = Path("audio/transcripts")
-files = list(processing.iterdir())
+PROCESSING = Path("audio/processing")
+TRANSCRIPTS = Path("audio/transcripts")
+
+files = [f for f in PROCESSING.iterdir() if f.suffix == ".m4a"]
 current = files[0]
-currentTxt = transcripts / current.with_suffix(".txt")
+
+currentTxt = TRANSCRIPTS / current.with_suffix(".txt").name
+
 model = WhisperModel("small", device = "cpu", compute_type = "int8")
-
-
 
 segments, info = model.transcribe(current, beam_size = 5)
 
