@@ -6,6 +6,7 @@ from pathlib import Path
 
 def pullFiles():
     subprocess.run(["tailscale", "file", "get", "audio/incoming"])
+    print("Audio pulled", flush = True)
 
 
 def sortAudio():
