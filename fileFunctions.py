@@ -17,14 +17,12 @@ def sortAudio():
         return
     else:
         for i in files: 
-            print(i.name)
-            print(i.suffix)
             if i.suffix == '.m4a':
                 moveFile(i, "audio/processing")
-                print("moved to processing")
+                print(i.name + " moved to processing")
             else:
                 moveFile(i,"audio/nonAudio")
-                print("moved to nonAudio")
+                print(i.name + " moved to nonAudio")
 
 def moveFile(source, destination):
     shutil.move(source, destination)
@@ -32,6 +30,7 @@ def moveFile(source, destination):
 def checkEmpty(folder):
     files = list(Path(folder).iterdir())
     if len(files) == 0:
+        print(folder + " folder empty")
         return False
     else:
         return True

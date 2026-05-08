@@ -9,7 +9,5 @@ while True:
 
     if fileFunctions.checkEmpty("audio/processing"):
         transcribe()
-    else:
-        print("Nothing to transcribe", flush = True)
 
     sleep(5)
