@@ -13,7 +13,7 @@ segments, info = model.transcribe(current, beam_size = 5)
 
 with open(currentTxt, "w", encoding="utf-8") as f:
     for segment in segments:
-        f.write(segment.txt + "\n")
+        f.write(segment.text + "\n")
         print(f"[{segment.start:.2f}s -> {segment.end:.2f}s] {segment.text}")
 
 print("transcription saved to ", currentTxt)
