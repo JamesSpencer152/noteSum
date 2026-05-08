@@ -1,11 +1,18 @@
 import fileFunctions
+from time import sleep
 from transcribe import transcribe
 
-print("Audio pulled", flush = True)
-fileFunctions.pullFiles()
+while True:
+    fileFunctions.pullFiles()
+    print("Audio pulled", flush = True)
 
-print("Audio sorted", flush = True)
-fileFunctions.sortAudio()
+    fileFunctions.sortAudio()
+    print("Audio sorted", flush = True)
 
-print("Audio transcribed", flush = True)
-transcribe()
+    if fileFunctions.checkEmpty("audio/processing"):
+        transcribe()
+        print("Audio transcribed", flush = True)
+    else:
+        print("Nothing to transcribe", flush = True)
+
+    sleep(5)

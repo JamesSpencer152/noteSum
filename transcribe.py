@@ -15,11 +15,11 @@ def transcribe():
 
     currentTxt = TRANSCRIPTS / current.with_suffix(".txt").name
 
-    model = WhisperModel("base", device = "cpu", compute_type = "int8")
+    model = WhisperModel("base.en", device = "cpu", compute_type = "int8")
 
     start_time = time.perf_counter()
 
-    segments, info = model.transcribe(current, beam_size = 5)
+    segments, info = model.transcribe(current, beam_size = 5, vad_filter = True)
 
     with open(currentTxt, "w", encoding="utf-8") as f:
         for segment in segments:

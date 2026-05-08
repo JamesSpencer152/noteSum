@@ -23,3 +23,10 @@ def sortAudio():
 
 def moveFile(source, destination):
     shutil.move(source, destination)
+
+def checkEmpty(folder):
+    files = list(Path(folder).iterdir())
+    if len(files) == 0:
+        return False
+    else:
+        return True
