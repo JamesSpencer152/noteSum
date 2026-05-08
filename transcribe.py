@@ -9,7 +9,7 @@ model = WhisperModel("small", device = "cpu", compute_type = "int8")
 
 
 
-segments, info = model.transcribe("audio" / current, beam_size = 5)
+segments, info = model.transcribe(current, beam_size = 5)
 
 with open(currentTxt, "w", encoding="utf-8") as f:
     for segment in segments:
