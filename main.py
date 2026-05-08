@@ -1,5 +1,7 @@
 import fileFunctions
 
-print("main run", flush=True)
+print("Audio pulled", flush = True)
+fileFunctions.pullFiles()
 
+print("Audio sorted", flush = True)
 fileFunctions.sortAudio()
