@@ -1,10 +1,11 @@
 from faster_whisper import WhisperModel
 from pathlib import Path
 
-folder = Path("audio/processing")
-files = list(folder.iterdir())
+processing = Path("audio/processing")
+transcripts = Path("audio/transcripts")
+files = list(processing.iterdir())
 current = files[0]
-currentTxt = current.with_stem(current.stem + ".txt")
+currentTxt = transcripts / current.with_suffix(".txt")
 model = WhisperModel("small", device = "cpu", compute_type = "int8")
 
 
