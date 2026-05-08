@@ -1,5 +1,8 @@
 from faster_whisper import WhisperModel
 from pathlib import Path
+import time
+
+start_time = time.perf_counter()
 
 PROCESSING = Path("audio/processing")
 TRANSCRIPTS = Path("audio/transcripts")
@@ -19,3 +22,7 @@ with open(currentTxt, "w", encoding="utf-8") as f:
         print(f"[{segment.start:.2f}s -> {segment.end:.2f}s] {segment.text}")
 
 print("transcription saved to ", currentTxt)
+
+end_time = time.perf_counter()
+
+print(f"Elapsed time: {end_time - start_time:.4f} seconds")
