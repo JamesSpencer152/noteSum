@@ -1,0 +1,15 @@
+[Unit]
+Description=Note Summarizer
+After=network-online.target
+
+[Service]
+Type=exec
+User=james
+WorkingDirectory=/home/james/noteSum
+ExecStart=/home/james/noteSum/venv/bin/python -u main.py
+SyslogIdentifier=noteSum
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
