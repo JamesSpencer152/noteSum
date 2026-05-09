@@ -13,7 +13,7 @@ def transcribe():
 
     currentTxt = TRANSCRIPTS / current.with_suffix(".txt").name
 
-    model = WhisperModel("base.en", device = "cpu", compute_type = "int8")
+    model = WhisperModel("small.en", device = "cpu", compute_type = "int8")
 
     start_time = time.perf_counter()
 
