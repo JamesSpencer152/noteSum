@@ -15,6 +15,8 @@ def summarize():
 
     sumText = SUMMARIES / f"{transcriptPath.stem} SUM.txt"
 
+    print(sumText, flush = True)
+    
     start_time = time.perf_counter()
     print("Begin Summary", flush = True)
 
