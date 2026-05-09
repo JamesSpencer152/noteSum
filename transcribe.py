@@ -4,8 +4,6 @@ from fileFunctions import moveFile
 import time
 
 def transcribe():
-    start_time = time.perf_counter()
-
     PROCESSING = Path("audio/processing")
     TRANSCRIPTS = Path("audio/transcripts")
     PROCESSED = Path("audio/processed")
