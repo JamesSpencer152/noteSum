@@ -2,11 +2,13 @@ import ollama
 import time
 from prompt import PROMPT_TEMPLATE
 from pathlib import Path
+from fileFunctions import moveFile
 
 
 
 
 def summarize():
+    PROCESSED = Path("audio/processed")
     TRANSCRIPTS = Path("audio/transcripts")
     SUMMARIES = Path("audio/summaries")
 
@@ -35,6 +37,8 @@ def summarize():
 
             print(text, end="", flush=True)
             f.write(text)
+
+    moveFile(transcriptPath, PROCESSED)
 
     end_time = time.perf_counter()
 
